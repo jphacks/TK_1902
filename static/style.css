@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+ 
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-size: 0.9em;
+  font-family: sans-serif,helvetica;
+  margin: 0;
+  padding: 0;
+}
+:link {
+  color: #0000FF;
+}
+h1 {
+  font-family: 'Noto Serif JP', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0.6em 2em 0.4em;
+  background-color: green;
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 4em;
+  border-bottom: 2px solid #000;
+}
+
+p {
+  font-family: 'Noto Serif JP', sans-serif;
+  font-size: 30px
+}
+.content {
+  padding: 1em 5em;
+}
+img {
+  border: 2px solid #fff;
+  padding: 2px;
+  margin: 2px;
+}
+a:hover img {
+  border: 2px solid #3399FF;
+}
+
+
+
+
+
+
+.list {
+  float:left;
+  width:33%;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+.lists{
+  padding-top: 20%;
+  vertical-align: middle;
+  /* background-image: url("intersection.png") */
+}
+.graph {
+  height: 50%
+}
+.fas {
+  size: 50em
+}
+.main{
+  height: 100%;
+  width: 100%
+}
+html {
+  display: block;
+  color: -internal-root-color;
+}

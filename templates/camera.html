@@ -1,0 +1,62 @@
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../static/style_1.css">
+</head>
+
+<body>
+<h1>色覚補完カメラ</h1>
+<video id="myVideo" width=100% autoplay playsinline="true" ></video>
+<button class="button" onclick="copyFrame()" style="height:10%; width: 100%; font-size:3em; background-color: #fff;border-color: #33FF00;
+color: green;">Capture</button>
+<canvas id="capture_image" style="display:none"></canvas>
+
+<script type="text/javascript">
+// navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
+// window.URL = window.URL || window.webkitURL;
+
+var video = document.getElementById('myVideo');
+
+// iOS用の処理
+var constraints = {
+    audio: false,
+    video: {
+            // スマホのバックカメラを使用
+            facingMode: 'environment'
+    }
+};
+//  カメラの映像を取得
+navigator.mediaDevices.getUserMedia(constraints)
+        .then((stream) => {
+            video.srcObject = stream;
+        })
+        .catch((err) => {
+            window.alert(err.name + ': ' + err.message);
+        });
+
+function copyFrame() {
+    var canvas_capture_image = document.getElementById('capture_image');
+    var cci = canvas_capture_image.getContext('2d');
+    var va = document.getElementById('myVideo');
+    canvas_capture_image.width  = va.videoWidth;
+    canvas_capture_image.height = va.videoHeight;
+    cci.drawImage(va, 0, 0);  // canvasに『「静止画取得」ボタン』押下時点の画像を描画。
+
+    var canvas = document.getElementById( "capture_image" );
+    var dataURL = canvas.toDataURL() ;
+
+    var form = document.createElement('form');
+    var request = document.createElement('input');
+    form.method = 'POST';
+    form.action = '/post';
+    request.type = 'hidden'; //入力フォームが表示されないように
+    request.name = 'image';
+    request.value = dataURL
+
+    form.appendChild(request);
+    document.body.appendChild(form);
+    form.submit();
+}
+
+</script>
+</body>
+

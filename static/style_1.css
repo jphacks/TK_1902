@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+ 
+.button {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    background-color: #333;
+    border: 2px solid #333;
+    line-height: 50px;
+  }
+  .button:hover {
+    background-color: #fff;
+    border-color: greenyellow;
+    color: greenyellow;
+  }
+  .button::before,
+  .button::after {
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #333;
+  }
+  .button::before {
+    right: 0;
+  }
+  .button::after {
+    left: 0;
+  }
+  .button:hover::before,
+  .button:hover::after {
+    width: 0;
+    background-color: greenyellow;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0.6em 2em 0.4em;
+    background-color: green;
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 4em;
+    border-bottom: 2px solid #000;
+  }
+
+  body {
+    background-color: #fff;
+    color: #000;
+    font-size: 0.9em;
+    font-family: sans-serif,helvetica;
+    margin: 0;
+    padding: 0;
+  }
